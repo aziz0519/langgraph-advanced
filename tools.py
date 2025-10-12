@@ -4,7 +4,7 @@ from IPython.display import HTML, display
 from langchain_core.runnables.graph_mermaid import MermaidDrawMethod
 
 
-def draw_mermaid_png(agent, max_height="70vh", max_width="min(90vw, 500px)"):
+def draw_mermaid_png(agent, max_height="70vh", max_width="min(90vw, 300px)"):
     """
     Render a Mermaid graph locally while auto-scaling it for notebook display.
 
