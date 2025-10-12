@@ -173,6 +173,16 @@ Each lesson will have a dedicated video tutorial. Links will be provided as less
   - Discover how the same semantic search technique can replace LLM-based categorization from the previous lesson for dynamic tool selection in standard ReAct agents.
   - [LangGraph Advanced – Use LangGraph BigTool and Semantic Search to Manage Large Toolsets in AI Agents](https://www.youtube.com/watch?v=iBcRiTtvBXU)
 
+15. **Let AI Agents Ask Humans: Build Dynamic Human-in-the-Loop Workflows** ([15_dynamic_hitl_agents.ipynb](15_dynamic_hitl_agents.ipynb))
+  - Understand the difference between approval-based HITL (Lesson 4: approve/decline risky actions) and query-based HITL (agents proactively ask questions when information is missing).
+  - Learn to build an `ask_question` tool that uses `interrupt()` to pause agent execution, collect human input, and resume with the response—enabling agents to gather missing information autonomously.
+  - Master the pattern: agent detects missing parameters (e.g., "buy some Tesla stock" without budget), calls `ask_question("What is your investment budget?")`, waits for human response, then continues execution.
+  - Implement the resume flow: check `response["__interrupt__"]` to detect paused state, extract the question from `interrupts[0].value["question"]`, and resume with `Command(resume="user answer")`.
+  - Compare agent behavior with and without the `ask_question` tool: without it, agents either fabricate missing data or fail to act; with it, they proactively request clarification and complete tasks correctly.
+  - Apply this technique to build more autonomous agents that handle ambiguous requests gracefully: instead of making assumptions or asking vague questions, they identify specific missing information and request it explicitly.
+  - Recognize when to use each HITL pattern: approval gates for risk management (risky actions), query tools for information gathering (missing parameters, user preferences, clarifications).
+  - [LangGraph Advanced – Let AI Agents Ask Humans: Build Dynamic Human-in-the-Loop Workflows](https://www.youtube.com/watch?v=QS2NjzAQGUY)
+
 ## Contributing
 
 Feedback and contributions are welcome! Please open issues or submit pull requests for suggestions and improvements.
