@@ -6,6 +6,7 @@ langgraph
 langgraph-supervisor
 langgraph-swarm
 langchain-mcp-adapters
+langgraph-bigtool
 
 trustcall
 yfinance

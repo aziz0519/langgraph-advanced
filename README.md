@@ -163,6 +163,16 @@ Each lesson will have a dedicated video tutorial. Links will be provided as less
   - Apply this pattern to any agent with large tool sets (MCP servers, API collections, enterprise tool catalogs) to maintain predictable behavior as your tool library grows.
   - [LangGraph Advanced – Dynamically Select Tools in AI Agents for Cleaner and Smarter Workflows](https://www.youtube.com/watch?v=qGaRj3lUfps)
 
+14. **Use LangGraph BigTool and Semantic Search to Manage Large Toolsets in AI Agents** ([14_bigtool_semantic_search.ipynb](14_bigtool_semantic_search.ipynb))
+  - Understand semantic search as an alternative to LLM-based tool selection: use embeddings and vector similarity instead of structured LLM calls to find relevant tools.
+  - Learn to build a tool registry with unique identifiers and index tool descriptions in `InMemoryStore` with embedding-based search capabilities (`text-embedding-3-small`).
+  - Master the `langgraph_bigtool.create_agent()` pattern: configure a `limit` parameter to retrieve only the top-N semantically similar tools per query, reducing context size automatically.
+  - Compare three approaches for large toolsets: (1) bind all tools (context pollution), (2) LLM pre-filtering (extra call + cost), (3) semantic search (no LLM call but less intelligent matching).
+  - Recognize the trade-off: semantic search is faster and cheaper but may miss tools with poor descriptions or subtle semantic differences; LLM selection is slower but more contextually aware.
+  - Apply this knowledge to choose the right tool selection strategy based on your constraints: latency requirements, cost budgets, tool description quality, and semantic diversity of your tool library.
+  - Discover how the same semantic search technique can replace LLM-based categorization from the previous lesson for dynamic tool selection in standard ReAct agents.
+  - [LangGraph Advanced – Use LangGraph BigTool and Semantic Search to Manage Large Toolsets in AI Agents](https://www.youtube.com/watch?v=iBcRiTtvBXU)
+
 ## Contributing
 
 Feedback and contributions are welcome! Please open issues or submit pull requests for suggestions and improvements.
