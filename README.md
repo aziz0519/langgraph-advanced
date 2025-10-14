@@ -183,6 +183,17 @@ Each lesson will have a dedicated video tutorial. Links will be provided as less
   - Recognize when to use each HITL pattern: approval gates for risk management (risky actions), query tools for information gathering (missing parameters, user preferences, clarifications).
   - [LangGraph Advanced – Let AI Agents Ask Humans: Build Dynamic Human-in-the-Loop Workflows](https://www.youtube.com/watch?v=QS2NjzAQGUY)
 
+16. **Add Human-in-the-Loop Control Directly to Tools in AI Agent Workflows** ([16_tool_level_hitl_control.ipynb](16_tool_level_hitl_control.ipynb))
+  - Learn the limitation of `post_model_hook` HITL (Lesson 4): requires modifying agent configuration and doesn't work with third-party tools like MCP tools that you don't control.
+  - Master the `add_approval()` wrapper pattern: create a universal decorator that wraps any tool (including MCP tools) with HITL logic without modifying the original tool code.
+  - Understand the wrapper implementation: intercept tool calls with `interrupt()`, wait for approval decision, execute the original tool if approved, or return cancellation message if declined.
+  - Compare two HITL approaches: (1) `post_model_hook` (agent-level, requires agent modification), (2) tool wrapper (tool-level, works with any tool including third-party).
+  - Apply selective wrapping: use list comprehension to wrap only risky tools (`add_approval(tool) if tool.name in RISKY_TOOLS else tool`) while leaving safe tools unchanged.
+  - Recognize the key advantage: tool wrappers enable HITL for tools you don't own or can't modify (MCP servers, external APIs, library tools) by adding approval logic at the integration layer.
+  - Implement the same approve/decline flow as Lesson 4 but with cleaner separation: HITL logic lives in the wrapper, not in agent hooks, making it reusable across different agents and architectures.
+  - [LangGraph Advanced – Add Human in the Loop Control Directly to Tools in AI Agent Workflows](https://www.youtube.com/watch?v=snI7BvB4Qxg)
+
+
 ## Contributing
 
 Feedback and contributions are welcome! Please open issues or submit pull requests for suggestions and improvements.
