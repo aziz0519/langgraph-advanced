@@ -193,6 +193,44 @@ Each lesson will have a dedicated video tutorial. Links will be provided as less
   - Implement the same approve/decline flow as Lesson 4 but with cleaner separation: HITL logic lives in the wrapper, not in agent hooks, making it reusable across different agents and architectures.
   - [LangGraph Advanced – Add Human in the Loop Control Directly to Tools in AI Agent Workflows](https://www.youtube.com/watch?v=snI7BvB4Qxg)
 
+17. **Standardize Human-in-the-Loop Workflows** ([17_unified_hitl_format.ipynb](17_unified_hitl_format.ipynb))
+   - Combine question-based HITL prompts and approval gates in a single ReAct agent to show end-to-end human oversight flows.
+   - Diagnose inconsistent interrupt payloads from earlier lessons and motivate adopting LangGraph's `HumanInterrupt` / `HumanResponse` schema.
+   - Wrap risky tools with `add_approval(...)` that emits `ActionRequest` plus `HumanInterruptConfig`, enabling accept, ignore, and optional edit paths with consistent resumes.
+   - Rebuild the `ask_question` helper around the same schema so clarification prompts share the standardized configuration knobs (allow_ignore, allow_respond, etc.).
+   - Walk through the full interaction loop: initial question pause, resume via `HumanResponse`, approval interrupt, accept/edit handling, and final execution summary.
+   - Demonstrate how unified payloads plug into AgentChat UI and other frontends that expect structured HITL events.
+   - [LangGraph Advanced – Standardize Human in the Loop Workflows in AI Agents with Unified HITL Format](https://www.youtube.com/watch?v=8pIBH2dMTI0)
+
+## Running Agents in `studio` Using LangGraph Studio (Web Interface)
+
+To run agents (such as those found in the `studio` directory) using the LangGraph Studio web interface for local development, follow these steps:
+
+1. **Install Required Dependencies**
+   Make sure all dependencies for your agent are installed:
+   ```bash
+   pip install -r studio/requirements.txt
+   ```
+
+2. **Install the LangGraph CLI**
+   ```bash
+   pip install -U "langgraph-cli[inmem]"
+   ```
+
+4. **Start the Local LangGraph Development Server**
+   From the `studio` directory, run:
+   ```bash
+   langgraph dev
+   ```
+   This will start the local LangGraph server in watch mode.
+
+4. **Open LangGraph Studio in Your Browser**
+   Once the server is running, you can access the Studio UI at:
+   [https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024](https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024)
+   (If your server is running at a different host/port, update the `baseUrl` accordingly.)
+
+For more details and troubleshooting, see the [official LangGraph Studio Quickstart](https://langchain-ai.github.io/langgraph/cloud/how-tos/studio/quick_start/).
+
 
 ## Contributing
 
