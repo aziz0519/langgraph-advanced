@@ -7,7 +7,7 @@ This repository continues the LangGraph learning journey with a collection of ad
 ### 1. Clone the Repository
 
 ```bash
-git clone git@github.com:esurovtsev/langgraph-advanced.git
+git clone git@github.com:aziz0519/langgraph-advanced.git
 cd langgraph-advanced
 ```
 
