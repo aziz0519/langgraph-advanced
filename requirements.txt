@@ -8,6 +8,9 @@ langgraph-swarm
 langchain-mcp-adapters
 langgraph-bigtool
 
+# Pin langgraph SDK to avoid websockets>=14 conflict with pyppeteer
+langgraph-sdk<0.4.0
+
 trustcall
 yfinance
 pyppeteer==2.0.0
